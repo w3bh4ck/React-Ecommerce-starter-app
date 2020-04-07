@@ -41,16 +41,18 @@ const Directory = () => {
 	const renderDirectory = () => {
 		if (directory.length > 0) {
 			return directory.map((dir, i) => (
-				<div key={i} className="directory-menu">
-					<MenuItem title={dir.title} />
-				</div>
+				<MenuItem key={i} imageUrl={dir.imageUrl} title={dir.title} size={dir.size ? dir.size : ""} />
 			));
 		} else {
 			return <p>Nothing dey</p>;
 		}
 	};
 
-	return <>{renderDirectory()}</>;
+	return (
+		<>
+			<div className="directory-menu">{renderDirectory()}</div>
+		</>
+	);
 };
 
 export default Directory;
