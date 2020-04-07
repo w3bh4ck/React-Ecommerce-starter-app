@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./menuItem.styles.scss";
 interface IPROPS {
 	title: string;
 }

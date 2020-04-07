@@ -40,17 +40,17 @@ const Directory = () => {
 
 	const renderDirectory = () => {
 		if (directory.length > 0) {
-			return directory.map((dir, i) => (
-				<div key={i} className="directory-menu">
-					<MenuItem title={dir.title} />
-				</div>
-			));
+			return directory.map((dir, i) => <MenuItem key={i} title={dir.title} />);
 		} else {
 			return <p>Nothing dey</p>;
 		}
 	};
 
-	return <>{renderDirectory()}</>;
+	return (
+		<>
+			<div className="directory-menu">{renderDirectory()}</div>
+		</>
+	);
 };
 
 export default Directory;
