@@ -1,5 +1,6 @@
 import React from "react";
 import "./Collection.styles.scss";
+import CollectionItem from "../collection-item/CollectionItem.component";
 
 interface Iprops {
 	title: string;
@@ -9,12 +10,20 @@ interface Iprops {
 const Collection = ({ title, items }: Iprops) => {
 	return (
 		<div className="collection-preview">
-			<h1>{title.toUpperCase()}</h1>
+			<h1 className="title">{title.toUpperCase()}</h1>
 			<div className="preview">
 				{items
 					.filter((item, i) => i < 4)
-					.map((item: { name: string }, i: number) => {
-						return <div key={i}>{item.name}</div>;
+					.map((item, i: number) => {
+						return (
+							<CollectionItem
+								key={i}
+								name={item.name}
+								id={item.id}
+								imageUrl={item.imageUrl}
+								price={item.price}
+							/>
+						);
 					})}
 			</div>
 		</div>
