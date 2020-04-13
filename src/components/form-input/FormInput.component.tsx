@@ -1,6 +1,7 @@
 import React from "react";
 import "./FormInput.styles.scss";
 
+// added intarface for form-input
 interface IProps {
 	label: string;
 	onchange: Function;
