@@ -17,16 +17,17 @@ const SignIn = () => {
 				<form onSubmit={(e) => handleSubmit(e)}>
 					<FormInput
 						required
+						name="email"
 						value={email}
-						onchange={setEmail}
-						type="text"
+						handleChange={setEmail}
+						type="email"
 						label={"Email"}
-						className="form-input shrink"
+						className="form-input"
 					/>
 					<FormInput
 						required
 						value={password}
-						onchange={setPassword}
+						handleChange={setPassword}
 						type="password"
 						label={"Password"}
 						className="form-input"
