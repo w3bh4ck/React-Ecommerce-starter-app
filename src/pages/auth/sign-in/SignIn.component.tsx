@@ -9,6 +9,14 @@ const SignIn = () => {
 		e.preventDefault();
 	};
 
+	const handleChangeEmail = (value: string) => {
+		setEmail(value);
+	};
+
+	const handleChangePassword = (value: string) => {
+		setPassword(value);
+	};
+
 	return (
 		<>
 			<div className="sign-in">
@@ -19,18 +27,16 @@ const SignIn = () => {
 						required
 						name="email"
 						value={email}
-						handleChange={setEmail}
+						handleChange={handleChangeEmail}
 						type="email"
 						label={"Email"}
-						className="form-input"
 					/>
 					<FormInput
 						required
 						value={password}
-						handleChange={setPassword}
+						handleChange={handleChangePassword}
 						type="password"
 						label={"Password"}
-						className="form-input"
 					/>
 					<input type="submit" value="submit" />
 				</form>
