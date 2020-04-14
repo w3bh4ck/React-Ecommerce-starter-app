@@ -2,13 +2,12 @@ import React from "react";
 import "./CollectionItem.styles.scss";
 
 interface Iprops {
-	id: number;
 	name: string;
 	price: number;
 	imageUrl: string;
 }
 
-const CollectionItem = ({ id, name, imageUrl, price }) => {
+const CollectionItem = ({ name, imageUrl, price }: Iprops) => {
 	return (
 		<div className="collection-item">
 			<div
