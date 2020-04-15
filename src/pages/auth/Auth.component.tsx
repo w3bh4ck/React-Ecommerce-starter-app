@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Auth.styles.scss";
 import SignIn from "./sign-in/SignIn.component";
 
