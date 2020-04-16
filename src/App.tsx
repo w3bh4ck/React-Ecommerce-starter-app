@@ -6,7 +6,8 @@ import "./App.css";
 import ShopPage from "./pages/shop-page/Shop.component";
 import Header from "./components/header/Header.component";
 import Auth from "./pages/auth/Auth.component";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { firestore } from "firebase";
 
 const App = () => {
 	const [currentUser, setcurrentUser] = useState({});
@@ -14,6 +15,7 @@ const App = () => {
 	useEffect(() => {
 		auth.onAuthStateChanged((user: any) => {
 			setcurrentUser(user);
+			createUserProfileDocument(user);
 		});
 	}, []);
 
