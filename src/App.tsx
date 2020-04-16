@@ -12,10 +12,20 @@ import { firestore } from "firebase";
 const App = () => {
 	const [currentUser, setcurrentUser] = useState({});
 
+	let unSubscribeFromAuth: any;
+
 	useEffect(() => {
-		auth.onAuthStateChanged((user: any) => {
-			setcurrentUser(user);
-			createUserProfileDocument(user);
+		unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth: any) => {
+			if (userAuth) {
+				const userRef: any = await createUserProfileDocument(userAuth);
+				userRef.onSnapshot((snapshot: any) => {
+					setcurrentUser({
+						id: snapshot.id,
+						...snapshot.data(),
+					});
+				});
+			}
+			setcurrentUser(userAuth);
 		});
 	}, []);
 
