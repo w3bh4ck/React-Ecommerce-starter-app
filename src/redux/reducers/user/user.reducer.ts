@@ -1,5 +1,3 @@
-import { Action } from "redux";
-
 const INITIAL_STATE = {
 	currentUser: null,
 };
