@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Homepage from "./pages/home-page/Homepage.component";
 
@@ -8,8 +9,10 @@ import Header from "./components/header/Header.component";
 import Auth from "./pages/auth/Auth.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { firestore } from "firebase";
+import { getCurrentUser } from "./redux/actions/user.actions";
 
-const App = () => {
+const App = (props: any) => {
+	const { getCurrentUser } = props;
 	const [currentUser, setcurrentUser] = useState({});
 
 	let unSubscribeFromAuth: any;
@@ -43,4 +46,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default connect(null, getCurrentUser)(App);
