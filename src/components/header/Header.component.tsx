@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { getCurrentUser } from "../../redux/actions/user.actions";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, getCurrentUser }) => {
+	useEffect(() => {
+		if (currentUser.hasOwnProperty("id")) {
+			getCurrentUser(currentUser);
+		}
+	}, [currentUser]);
+
 	return (
 		<div className="header">
 			<Link to="/" className="logo-container">
@@ -31,4 +39,4 @@ const Header = ({ currentUser }) => {
 	);
 };
 
-export default Header;
+export default connect(null, { getCurrentUser })(Header);
