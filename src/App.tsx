@@ -12,7 +12,6 @@ import { firestore } from "firebase";
 import { getCurrentUser } from "./redux/actions/user.actions";
 
 const App = (props: any) => {
-	const { getCurrentUser } = props;
 	const [currentUser, setcurrentUser] = useState({});
 
 	let unSubscribeFromAuth: any;
