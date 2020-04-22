@@ -5,6 +5,7 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 import { getCurrentUser } from "../../redux/actions/user.actions";
+import CartIcon from "../cart-icon/CartIcon.component";
 
 const Header = ({ currentUser, getCurrentUser }) => {
 	useEffect(() => {
@@ -34,6 +35,7 @@ const Header = ({ currentUser, getCurrentUser }) => {
 						SIGN IN
 					</Link>
 				)}
+				<CartIcon />
 			</div>
 		</div>
 	);
