@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Homepage from "./pages/home-page/Homepage.component";
 
 import "./App.css";
@@ -13,7 +13,7 @@ import { getCurrentUser } from "./redux/actions/user.actions";
 
 const App = (props: any) => {
 	const [currentUser, setcurrentUser] = useState({});
-
+	const { user } = props;
 	let unSubscribeFromAuth: any;
 
 	useEffect(() => {
@@ -36,7 +36,7 @@ const App = (props: any) => {
 			<BrowserRouter>
 				<Header currentUser={currentUser} />
 				<Switch>
-					<Route exact path="/signin" component={Auth} />
+					<Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <Auth />)} />
 					<Route exact path="/" component={Homepage} />
 					<Route exact path="/shop" component={ShopPage} />
 				</Switch>
@@ -45,4 +45,8 @@ const App = (props: any) => {
 	);
 };
 
-export default connect(null, getCurrentUser)(App);
+const mapStateToProps = (state: any) => ({
+	user: state.user.currentUser,
+});
+
+export default connect(mapStateToProps, getCurrentUser)(App);
