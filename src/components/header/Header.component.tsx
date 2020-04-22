@@ -8,7 +8,7 @@ import { getCurrentUser } from "../../redux/actions/user.actions";
 
 const Header = ({ currentUser, getCurrentUser }) => {
 	useEffect(() => {
-		if (currentUser.hasOwnProperty("id")) {
+		if (currentUser && currentUser.hasOwnProperty("id")) {
 			getCurrentUser(currentUser);
 		}
 	}, [currentUser]);
