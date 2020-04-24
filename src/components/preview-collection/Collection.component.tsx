@@ -15,9 +15,7 @@ const Collection = ({ title, items }: Iprops) => {
 				{items
 					.filter((item, i) => i < 4)
 					.map((item, i: number) => {
-						return (
-							<CollectionItem key={i} name={item.name} imageUrl={item.imageUrl} price={item.price} />
-						);
+						return <CollectionItem key={item.id} item={item} />;
 					})}
 			</div>
 		</div>
