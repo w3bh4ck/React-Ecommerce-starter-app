@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { auth } from "../../firebase/firebase.utils";
 import { getCurrentUser } from "../../redux/actions/user.actions";
 import CartIcon from "../cart-icon/CartIcon.component";
 import CartDropdown from "../cart-dropdown/CartDropdown.component";
 
-const Header = ({ currentUser, getCurrentUser }) => {
+const Header = ({ currentUser, getCurrentUser, cartHidden }) => {
 	useEffect(() => {
 		if (currentUser && currentUser.hasOwnProperty("id")) {
 			getCurrentUser(currentUser);
@@ -38,9 +38,12 @@ const Header = ({ currentUser, getCurrentUser }) => {
 				)}
 				<CartIcon />
 			</div>
-			<CartDropdown />
+			{!cartHidden && <CartDropdown />}
 		</div>
 	);
 };
 
-export default connect(null, { getCurrentUser })(Header);
+const mapStateToProps = (state: any) => ({
+	cartHidden: state.cart.hidden,
+});
+export default connect(mapStateToProps, { getCurrentUser })(Header);

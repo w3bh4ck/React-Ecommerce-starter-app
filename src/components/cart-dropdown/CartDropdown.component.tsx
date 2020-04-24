@@ -1,9 +1,15 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import "./CartDropdown.styles.scss";
 import CustomButton from "../custom-button/CustomButton.component";
+import { toggleCartHidden } from "../../redux/cart/cart.action";
 
-const CartDropdown = () => {
+interface cartProps {
+	hidden?: boolean;
+	toggleCartHidden: void;
+}
+
+const CartDropdown = (props: any) => {
 	return (
 		<div className="cart-dropdown">
 			<div className="cart-items"></div>
@@ -12,4 +18,4 @@ const CartDropdown = () => {
 	);
 };
 
-export default CartDropdown;
+export default connect(null, { toggleCartHidden })(CartDropdown);
