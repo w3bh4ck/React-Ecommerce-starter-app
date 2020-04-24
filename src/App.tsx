@@ -8,7 +8,7 @@ import ShopPage from "./pages/shop-page/Shop.component";
 import Header from "./components/header/Header.component";
 import Auth from "./pages/auth/Auth.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { firestore } from "firebase";
+// import { firestore } from "firebase";
 import { getCurrentUser } from "./redux/actions/user.actions";
 
 const App = (props: any) => {
