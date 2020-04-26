@@ -12,3 +12,10 @@ export const addItem = (item: any) => (dispatch: any) => {
 		payload: item,
 	});
 };
+
+export const clearItemFromCart = (item: any) => (dispatch: any) => {
+	dispatch({
+		type: cartTypes.CLEAR_ITEM_FROM_CART,
+		payload: item,
+	});
+};
