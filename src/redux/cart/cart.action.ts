@@ -19,3 +19,10 @@ export const clearItemFromCart = (item: any) => (dispatch: any) => {
 		payload: item,
 	});
 };
+
+export const removeItem = (item: any) => (dispatch: any) => {
+	dispatch({
+		type: cartTypes.REMOVE_ITEM,
+		payload: item,
+	});
+};
