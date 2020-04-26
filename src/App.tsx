@@ -10,6 +10,7 @@ import Auth from "./pages/auth/Auth.component";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 // import { firestore } from "firebase";
 import { getCurrentUser } from "./redux/actions/user.actions";
+import Checkout from "./pages/checkout/Checkout.component";
 
 const App = (props: any) => {
 	const [currentUser, setcurrentUser] = useState({});
@@ -39,6 +40,7 @@ const App = (props: any) => {
 					<Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <Auth />)} />
 					<Route exact path="/" component={Homepage} />
 					<Route exact path="/shop" component={ShopPage} />
+					<Route exact path="/checkout" component={Checkout} />
 				</Switch>
 			</BrowserRouter>
 		</div>
