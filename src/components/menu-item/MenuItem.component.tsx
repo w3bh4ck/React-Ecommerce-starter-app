@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./menuItem.styles.scss";
 interface IPROPS {
 	title: string;
 	imageUrl: string;
 	size: string;
+	link: string;
 }
 
-const MenuItem = ({ title, imageUrl, size }: IPROPS) => {
+const MenuItem = ({ title, imageUrl, size, link }: IPROPS) => {
 	return (
 		<>
 			<div className={`${size} menu-item`}>
@@ -19,7 +21,9 @@ const MenuItem = ({ title, imageUrl, size }: IPROPS) => {
 
 				<div className="content">
 					<h1 className="title">{title.toUpperCase()}</h1>
-					<span className="subtitle">Shop Now</span>
+					<span className="subtitle">
+						<Link to={link}>Shop Now</Link>
+					</span>
 				</div>
 			</div>
 		</>

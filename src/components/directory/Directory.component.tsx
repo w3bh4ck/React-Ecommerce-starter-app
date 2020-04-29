@@ -7,7 +7,13 @@ const Directory = ({ directory }) => {
 	const renderDirectory = () => {
 		if (directory.length > 0) {
 			return directory.map((dir, i) => (
-				<MenuItem key={i} imageUrl={dir.imageUrl} title={dir.title} size={dir.size ? dir.size : ""} />
+				<MenuItem
+					key={i}
+					link={dir.linkUrl}
+					imageUrl={dir.imageUrl}
+					title={dir.title}
+					size={dir.size ? dir.size : ""}
+				/>
 			));
 		} else {
 			return <p>Nothing dey</p>;

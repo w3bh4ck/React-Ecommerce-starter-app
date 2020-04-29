@@ -39,7 +39,7 @@ const App = (props: any) => {
 				<Switch>
 					<Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <Auth />)} />
 					<Route exact path="/" component={Homepage} />
-					<Route exact path="/shop" component={ShopPage} />
+					<Route path="/shop" component={ShopPage} />
 					<Route exact path="/checkout" component={Checkout} />
 				</Switch>
 			</BrowserRouter>
