@@ -9,7 +9,7 @@ const ShopPage = ({ match }) => {
 	return (
 		<div className="shop-page">
 			<Route exact path={`${match.path}`} component={CollectionsOverviewComponent} />
-			<Route path={`${match.path}/:category`} component={Category} />
+			<Route path={`${match.path}/:categoryId`} component={Category} />
 		</div>
 	);
 };
