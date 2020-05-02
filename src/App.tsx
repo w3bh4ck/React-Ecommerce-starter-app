@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Homepage from "./pages/home-page/Homepage.component";
-
 import "./App.css";
 import ShopPage from "./pages/shop-page/Shop.component";
 import Header from "./components/header/Header.component";
