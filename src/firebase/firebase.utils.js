@@ -1,8 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-
-console.log("firebase util", process.env.REACT_APP_API_KEY);
+import { config } from "./firebase.config";
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
 	if (!userAuth) return;
