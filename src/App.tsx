@@ -10,6 +10,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 // import { firestore } from "firebase";
 import { getCurrentUser } from "./redux/actions/user.actions";
 import Checkout from "./pages/checkout/Checkout.component";
+import { dotenv } from "dotenv/config";
 
 const App = (props: any) => {
 	const [currentUser, setcurrentUser] = useState({});
