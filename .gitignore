@@ -24,4 +24,4 @@ yarn-error.log*
 launch.json
 
 
-firebase.config.js
+**/firebase/firebase.utils.js
